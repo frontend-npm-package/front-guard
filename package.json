@@ -1,6 +1,6 @@
 {
   "name": "front-guard",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Full-featured frontend security package for input sanitization, XSS protection, and secure UI components.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
