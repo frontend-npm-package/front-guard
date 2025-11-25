@@ -29,6 +29,11 @@
       "types": "./dist/svelte/index.d.ts",
       "require": "./dist/svelte/index.cjs",
       "import": "./dist/svelte/index.mjs"
+    },
+    "./angular": {
+      "types": "./dist/angular/index.d.ts",
+      "require": "./dist/angular/index.cjs",
+      "import": "./dist/angular/index.mjs"
     }
   },
   "files": [
@@ -55,7 +60,9 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
     "svelte": ">=3.0.0",
-    "vue": ">=3.0.0"
+    "vue": ">=3.0.0",
+    "@angular/core": ">=14.0.0",
+    "@angular/common": ">=14.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -69,9 +76,16 @@
     },
     "svelte": {
       "optional": true
+    },
+    "@angular/core": {
+      "optional": true
+    },
+    "@angular/common": {
+      "optional": true
     }
   },
   "devDependencies": {
+    "@angular/core": "^21.0.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
@@ -83,11 +97,13 @@
     "jsdom": "^27.2.0",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
+    "rxjs": "^7.8.2",
     "svelte": "^5.43.14",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vitest": "^2.1.5",
-    "vue": "^3.5.25"
+    "vue": "^3.5.25",
+    "zone.js": "^0.15.1"
   },
   "dependencies": {
     "dompurify": "^3.2.1"

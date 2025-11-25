@@ -25,6 +25,7 @@ bun add front-guard
 - ⚛️ **React Support** - Hooks, components, and HOCs
 - 🟢 **Vue 3 Support** - Composables and directives
 - 🔴 **Svelte Support** - Actions and utilities
+- 🅰️ **Angular Support** - Service, Pipe, and Directive
 - 🧩 **Form Library Adapters** - Zod, Yup, React Hook Form
 - 📦 **Tree-shakeable** - Import only what you need
 - 🌐 **Universal** - Works in browser and Node.js (with DOMPurify)
@@ -138,6 +139,46 @@ app.mount('#app');
 </script>
 
 <input use:sanitize bind:value={userInput} />
+```
+
+### Angular
+
+```typescript
+// app.module.ts
+import { NgModule } from '@angular/core';
+import { FrontGuardService, SanitizeHtmlPipe, SanitizeHtmlDirective } from 'front-guard/angular';
+
+@NgModule({
+  declarations: [SanitizeHtmlPipe, SanitizeHtmlDirective],
+  providers: [FrontGuardService],
+  exports: [SanitizeHtmlPipe, SanitizeHtmlDirective]
+})
+export class AppModule { }
+```
+
+```html
+<!-- component.html -->
+<!-- Using the pipe -->
+<div [innerHTML]="unsafeHtml | sanitizeHtml"></div>
+
+<!-- Using the directive -->
+<div [sanitizeHtml]="unsafeHtml"></div>
+```
+
+```typescript
+// component.ts
+import { Component } from '@angular/core';
+import { FrontGuardService } from 'front-guard/angular';
+
+@Component({ ... })
+export class MyComponent {
+  constructor(private fg: FrontGuardService) {}
+
+  save(input: string) {
+    const safe = this.fg.sanitizeInput(input);
+    // ...
+  }
+}
 ```
 
 ### Form Library Adapters
